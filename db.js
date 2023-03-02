@@ -1,4 +1,6 @@
-
+//Sprint 1 Semester 3 Software Development
+//Date: March 2 2023
+//Authors: Ken Chafe, Kyle Snow, Tyler Power, Kayleigh McGrath
 
 
 //----------------------------------------------
@@ -101,6 +103,9 @@ const airportsCitiesByid = (request, response) => {
   );
 };
 
+
+// Gets all aircrafts all passengers traveled on 
+
 const aircraftPassengers = (request, response) => {
   pool.query(
     `SELECT aircraft.type, passenger.first_name, passenger.last_name  FROM aircraft, passenger, passenger_aircraft
@@ -114,6 +119,9 @@ const aircraftPassengers = (request, response) => {
     }
   );
 };
+
+
+// Gets all aircrafts all passengers traveled on by id
 
 const aircraftPassengersByid = (request, response) => {
   const id = parseInt(request.params.id);
@@ -132,6 +140,10 @@ const aircraftPassengersByid = (request, response) => {
   );
 };
 
+
+//Gets a list of all aircrafts and the airports they can use 
+
+
 const aircraftAirports = (request, response) => {
   pool.query(
     `SELECT aircraft.type, airport.airport_name from aircraft, airport, aircraft_takeoff_land
@@ -145,6 +157,10 @@ AND aircraft_takeoff_land.airport_id = airport.id`,
     }
   );
 };
+
+
+//Gets a list of all aircrafts and the airports they can use  by id
+
 
 const aircraftAirportsBYid = (request, response) => {
   const id = parseInt(request.params.id);
@@ -163,6 +179,10 @@ AND aircraft.id = ${id}`,
   );
 };
 
+
+//Gets a list of all passengers and all airports they have been to
+
+
 const airportsPassengers = (request, response) => {
   pool.query(
     `SELECT passenger.first_name, passenger.last_name, airport.airport_name from passenger, airport, passenger_airport
@@ -177,6 +197,10 @@ AND passenger_airport.airport_id = airport.id`,
     }
   );
 };
+
+
+//Gets a list of all passengers and all airports they have been to by id
+
 
 const airportsPassengersBYid = (request, response) => {
   const id = parseInt(request.params.id);

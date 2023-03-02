@@ -1,3 +1,7 @@
+//Sprint 1 Semester 3 Software Development
+//Date: March 2 2023
+//Authors: Ken Chafe, Kyle Snow, Tyler Power, Kayleigh McGrath
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const restAPP = express();
@@ -41,7 +45,7 @@ restAPP.get("/airport/city", pgDBAccessLayer.airportsCities);
 
 restAPP.get("/airport/city/:id", pgDBAccessLayer.airportsCitiesByid);
 
-restAPP.get("/aircraft/passengers", pgDBAccessLayer.aircraftPassengers)
+restAPP.get("/aircraft/passengers", pgDBAccessLayer.aircraftPassengers);
 
 restAPP.get("/aircraft/passengers/:id", pgDBAccessLayer.aircraftPassengersByid);
 
@@ -53,8 +57,6 @@ restAPP.get("/airport/passengers", pgDBAccessLayer.airportsPassengers);
 
 restAPP.get("/airport/passengers/:id", pgDBAccessLayer.airportsPassengersBYid);
 
-
 restAPP.listen(port, () => {
   console.log(`App running on port ${port}.`);
 });
-
